@@ -46,7 +46,7 @@
                   <TableColumn fx:id="ProductPriceColumn" prefWidth="121.0" text="Price Per Unit" />
                </columns>
             </TableView>
-            <Button fx:id="AddProductButton" layoutX="326.0" layoutY="326.0" mnemonicParsing="false" text="Add" />
+            <Button fx:id="AddProductButton" layoutX="326.0" layoutY="326.0" mnemonicParsing="false" onAction="#addProduct" text="Add" />
             <Button fx:id="ModifyProductButton" layoutX="399.0" layoutY="326.0" mnemonicParsing="false" onAction="#modifyProduct" text="Modify" />
             <Button fx:id="DeleteProductButton" layoutX="483.0" layoutY="326.0" mnemonicParsing="false" onAction="#deleteProduct" text="Delete" />
             <TextField fx:id="ProductSearch" alignment="CENTER" layoutX="306.0" layoutY="24.0" prefHeight="25.0" prefWidth="228.0" promptText="Search by Part ID or Name" />

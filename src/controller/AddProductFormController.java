@@ -2,7 +2,13 @@ package controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class AddProductFormController {
     @FXML
@@ -53,6 +59,11 @@ public class AddProductFormController {
     public void saveProduct(ActionEvent actionEvent) {
     }
 
-    public void cancelProduct(ActionEvent actionEvent) {
+    public void cancelProduct(ActionEvent event) throws IOException {
+        Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+        Parent scene = FXMLLoader.load(getClass().getResource("/view/MainForm.fxml"));
+        stage.setTitle("Inventory System");
+        stage.setScene(new Scene(scene));
+        stage.show();
     }
 }
