@@ -10,7 +10,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import model.Inventory;
+import model.Part;
+import model.Product;
 
 import java.io.IOException;
 import java.net.URL;
@@ -19,15 +23,15 @@ import java.util.ResourceBundle;
 public class MainFormController implements Initializable {
 
     @FXML
-    private TableView PartTableView;
+    private TableView<Part> PartTableView;
     @FXML
-    private TableColumn PartIdColumn;
+    private TableColumn<Part, Integer> PartIdColumn;
     @FXML
-    private TableColumn PartNameColumn;
+    private TableColumn<Part, String> PartNameColumn;
     @FXML
-    private TableColumn PartInventoryColumn;
+    private TableColumn<Part, Integer> PartInventoryColumn;
     @FXML
-    private TableColumn PartPriceColumn;
+    private TableColumn<Part,Double> PartPriceColumn;
     @FXML
     private Button AddPartButton;
     @FXML
@@ -37,15 +41,15 @@ public class MainFormController implements Initializable {
     @FXML
     private TextField PartSearch;
     @FXML
-    private TableView ProductTableView;
+    private TableView<Product> ProductTableView;
     @FXML
-    private TableColumn ProductIdColumn;
+    private TableColumn<Product,Integer> ProductIdColumn;
     @FXML
-    private TableColumn ProductNameColumn;
+    private TableColumn<Product,String> ProductNameColumn;
     @FXML
-    private TableColumn ProductInventoryColumn;
+    private TableColumn<Product,Integer> ProductInventoryColumn;
     @FXML
-    private TableColumn ProductPriceColumn;
+    private TableColumn<Product,Double> ProductPriceColumn;
     @FXML
     private Button AddProductButton;
     @FXML
@@ -88,8 +92,26 @@ public class MainFormController implements Initializable {
         stage.setScene(new Scene(scene));
         stage.show();
     }
+    /**
+     * populates both tables
+     * @param url
+     * @param resourceBundle
+     * */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        PartTableView.setItems(Inventory.getAllParts());
+        PartIdColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+        PartNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        PartInventoryColumn.setCellValueFactory(new PropertyValueFactory<>("stock"));
+        PartPriceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
+
+        ProductTableView.setItems(Inventory.getAllProducts());
+        ProductIdColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+        ProductNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        ProductInventoryColumn.setCellValueFactory(new PropertyValueFactory<>("stock"));
+        ProductPriceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
+
+
 
     }
 

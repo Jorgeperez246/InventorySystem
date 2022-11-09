@@ -11,7 +11,7 @@ public class Inventory {
      * adds part to allParts Observable list
      * @param newPart
      * */
-    public void addPart(Part newPart){
+    public static void addPart(Part newPart){
         allParts.add(newPart);
     }
 
@@ -19,7 +19,7 @@ public class Inventory {
      * adds product to allProducts Observable list
      * @param newProduct
      * */
-    public void addProduct(Product newProduct){
+    public static void addProduct(Product newProduct){
         allProducts.add(newProduct);
     }
 

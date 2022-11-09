@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import model.*;
 
 import java.io.IOException;
 
@@ -16,8 +17,12 @@ public class main extends Application {
         stage.setScene(scene);
         stage.show();
     }
+    public static void addTestData(){
 
+    }
     public static void main(String[] args) {
+
+
         launch();
     }
 }
