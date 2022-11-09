@@ -7,4 +7,6 @@ module com.example.inventorysystem {
     opens main to javafx.fxml;
     exports controller;
     opens controller to javafx.fxml;
+    exports model;
+    opens model to javafx.base;
 }

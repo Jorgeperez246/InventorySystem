@@ -28,7 +28,7 @@ public class Inventory {
      * @param partId
      * @return part
      * */
-    public Part lookupPart(int partId) {
+    public static Part lookupPart(int partId) {
         for (Part part : Inventory.getAllParts()) {
             while (part.getId() == partId) {
                 return part;
@@ -42,7 +42,7 @@ public class Inventory {
      * @param productId
      * @return product
      * */
-    public Product lookupProduct(int productId){
+    public static Product lookupProduct(int productId){
         for(Product product: Inventory.getAllProducts()){
             while (product.getId() == productId)
                 return product;
@@ -56,7 +56,7 @@ public class Inventory {
      * @param partName
      * @return partsFound
      * */
-    public ObservableList<Part> lookupPart(String partName) {
+    public static ObservableList<Part> lookupPart(String partName) {
         ObservableList<Part> partsFound = FXCollections.observableArrayList();
 
         for (Part part: allParts) {
@@ -72,7 +72,7 @@ public class Inventory {
      * @param productName
      * @return productsFound
      * */
-    public ObservableList<Product> lookupProduct(String productName) {
+    public static ObservableList<Product> lookupProduct(String productName) {
         ObservableList<Product> productsFound = FXCollections.observableArrayList();
 
         for(Product product: allProducts){
@@ -89,7 +89,7 @@ public class Inventory {
      * @param index
      * @param selectedPart
      * */
-    public void updatePart(int index, Part selectedPart){
+    public static void updatePart(int index, Part selectedPart){
         allParts.set(index,selectedPart);
 
     }
@@ -99,7 +99,7 @@ public class Inventory {
      * @param index
      * @param selectedProduct
      * */
-    public void updateProduct(int index, Product selectedProduct){
+    public static void updateProduct(int index, Product selectedProduct){
 
     }
 
@@ -107,7 +107,7 @@ public class Inventory {
      * deletes part
      * @param selectedPart
      * */
-    public boolean deletePart(Part selectedPart){
+    public static boolean deletePart(Part selectedPart){
     return allParts.remove(selectedPart);
     }
 
@@ -115,7 +115,7 @@ public class Inventory {
      * deletes part
      * @param selectedProduct
      * */
-    public boolean deleteProduct(Product selectedProduct){
+    public static boolean deleteProduct(Product selectedProduct){
     return allProducts.remove(selectedProduct);
     }
 
