@@ -1,5 +1,7 @@
 package controller;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -70,8 +72,27 @@ public class MainFormController implements Initializable {
         stage.show();
     }
 
-    public void modifyPart(ActionEvent actionEvent) {
+    @FXML
+    public void modifyPart(ActionEvent actionEvent) throws IOException {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/view/ModifyPartForm.fxml"));
+            loader.load();
+
+            ModifyPartFormController MPController = loader.getController();
+            MPController.sendPartToModify(PartTableView.getSelectionModel().getSelectedIndex(),PartTableView.getSelectionModel().getSelectedItem());
+
+            Stage stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
+            Parent scene = loader.getRoot();
+            stage.setScene(new Scene(scene));
+            stage.show();
+        }
+        catch (IOException e) {
+            Logger logger = Logger.getLogger(getClass().getName());
+            logger.log(Level.SEVERE, "Failed to create new Window.", e);
+        }
     }
+    
 
     public void deletePart(ActionEvent actionEvent) {
     }
@@ -114,6 +135,8 @@ public class MainFormController implements Initializable {
 
 
     }
+    
+    
 
 
 }

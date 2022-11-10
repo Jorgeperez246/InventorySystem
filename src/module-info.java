@@ -1,6 +1,7 @@
 module com.example.inventorysystem {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.logging;
 
 
     exports main;
