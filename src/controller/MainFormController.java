@@ -8,10 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import model.Inventory;
@@ -62,6 +59,14 @@ public class MainFormController implements Initializable {
     private TextField ProductSearch;
     @FXML
     private Button ExitAppButton;
+
+    public static void errorPopup(String input_error, String error_in_adding_part, String check_fields_for_correct_input) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(input_error);
+        alert.setHeaderText(error_in_adding_part);
+        alert.setContentText(check_fields_for_correct_input);
+        alert.showAndWait();
+    }
 
     //Opens AddPartForm fxml file
     public void addPart(ActionEvent event) throws IOException {
