@@ -97,9 +97,14 @@ public class MainFormController implements Initializable {
             logger.log(Level.SEVERE, "Failed to create new Window.", e);
         }
     }
-    
-
+    /**
+     * deletes a part from inventory
+     * @param actionEvent
+     * */
+    @FXML
     public void deletePart(ActionEvent actionEvent) {
+        Part part = PartTableView.getSelectionModel().getSelectedItem();
+        Inventory.deletePart(part);
     }
 
     public void modifyProduct(ActionEvent actionEvent) throws IOException {
