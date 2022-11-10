@@ -79,8 +79,8 @@ public class MainFormController implements Initializable {
             loader.setLocation(getClass().getResource("/view/ModifyPartForm.fxml"));
             loader.load();
 
-            ModifyPartFormController MPController = loader.getController();
-            MPController.sendPartToModify(PartTableView.getSelectionModel().getSelectedIndex(),PartTableView.getSelectionModel().getSelectedItem());
+            ModifyPartFormController Controller = loader.getController();
+            Controller.sendPartToModify(PartTableView.getSelectionModel().getSelectedIndex(),PartTableView.getSelectionModel().getSelectedItem());
 
             Stage stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
             Parent scene = loader.getRoot();
@@ -97,7 +97,24 @@ public class MainFormController implements Initializable {
     public void deletePart(ActionEvent actionEvent) {
     }
 
-    public void modifyProduct(ActionEvent actionEvent) {
+    public void modifyProduct(ActionEvent actionEvent) throws IOException {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/view/ModifyProductForm.fxml"));
+            loader.load();
+
+            ModifyProductFormController Controller = loader.getController();
+            Controller.sendProductToModify(ProductTableView.getSelectionModel().getSelectedIndex(),ProductTableView.getSelectionModel().getSelectedItem());
+
+            Stage stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
+            Parent scene = loader.getRoot();
+            stage.setScene(new Scene(scene));
+            stage.show();
+        }
+        catch (IOException e) {
+            Logger logger = Logger.getLogger(getClass().getName());
+            logger.log(Level.SEVERE, "Failed to create new Window.", e);
+        }
     }
 
     public void deleteProduct(ActionEvent actionEvent) {
