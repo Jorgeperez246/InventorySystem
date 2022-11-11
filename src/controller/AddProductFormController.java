@@ -1,16 +1,25 @@
 package controller;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import model.Inventory;
+import model.Part;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class AddProductFormController {
+public class AddProductFormController implements Initializable {
+    private ObservableList<Part> associatedPart = FXCollections.observableArrayList();
     @FXML
     private TextField ProductId;
     @FXML
@@ -24,25 +33,25 @@ public class AddProductFormController {
     @FXML
     private TextField ProductMin;
     @FXML
-    private TableView PartTableView;
+    private TableView<Part> PartTableView;
     @FXML
-    private TableColumn PartIdColumn;
+    private TableColumn<Part,Integer> PartIdColumn;
     @FXML
-    private TableColumn PartNameColumn;
+    private TableColumn<Part,String> PartNameColumn;
     @FXML
-    private TableColumn PartInventoryColumn;
+    private TableColumn<Part,Integer> PartInventoryColumn;
     @FXML
-    private TableColumn PartPriceColumn;
+    private TableColumn<Part,Double> PartPriceColumn;
     @FXML
-    private TableView AssociatedPartTableView;
+    private TableView<Part> AssociatedPartTableView;
     @FXML
-    private TableColumn AssociatedPartIdColumn;
+    private TableColumn<Part,Integer> AssociatedPartIdColumn;
     @FXML
-    private TableColumn AssociatedPartPriceColumn;
+    private TableColumn<Part,Double> AssociatedPartPriceColumn;
     @FXML
-    private TableColumn AssociatedPartNameColumn;
+    private TableColumn<Part,String> AssociatedPartNameColumn;
     @FXML
-    private TableColumn AssociatedPartInventoryColumn;
+    private TableColumn<Part,Integer> AssociatedPartInventoryColumn;
     @FXML
     private Button RemovePartButton;
     @FXML
@@ -59,6 +68,10 @@ public class AddProductFormController {
     public void saveProduct(ActionEvent actionEvent) {
     }
 
+    /**
+     * sends you back to main Form
+     * @param event
+     * */
     public void cancelProduct(ActionEvent event) throws IOException {
         Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
         Parent scene = FXMLLoader.load(getClass().getResource("/view/MainForm.fxml"));
@@ -66,4 +79,23 @@ public class AddProductFormController {
         stage.setScene(new Scene(scene));
         stage.show();
     }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        PartTableView.setItems(Inventory.getAllParts());
+        PartIdColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+        PartNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        PartInventoryColumn.setCellValueFactory(new PropertyValueFactory<>("stock"));
+        PartPriceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
+
+        AssociatedPartTableView.setItems(associatedPart);
+        AssociatedPartIdColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+        AssociatedPartNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        AssociatedPartInventoryColumn.setCellValueFactory(new PropertyValueFactory<>("stock"));
+        AssociatedPartPriceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
+
+    }
+
+
 }
