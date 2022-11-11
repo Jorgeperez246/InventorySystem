@@ -21,6 +21,8 @@ import java.util.ResourceBundle;
 
 public class ModifyProductFormController implements Initializable {
 
+    @FXML
+    private TextField SearchPart;
     private ObservableList<Part> associatedPartList = FXCollections.observableArrayList();
     private int index = 0;
     @FXML
@@ -82,11 +84,29 @@ public class ModifyProductFormController implements Initializable {
             alert.showAndWait();
         }
     }
-
+    /**
+     * same function from AddProduct controller
+     * allows user to remove part from product
+     * @param actionEvent
+     * */
     public void removePart(ActionEvent actionEvent) {
+        Part part = AssociatedPartTableView.getSelectionModel().getSelectedItem();
+
+        if(part != null) {
+            associatedPartList.remove(part);
+            AssociatedPartTableView.setItems(associatedPartList);
+        }
+
+        else if(!associatedPartList.contains(null)) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Error");
+            alert.setContentText("part not selected from list");
+            alert.showAndWait();
+        }
     }
 
     public void saveProduct(ActionEvent actionEvent) {
+
     }
 
     public void cancelProduct(ActionEvent actionEvent) throws IOException {
@@ -130,5 +150,27 @@ public class ModifyProductFormController implements Initializable {
         AssociatedPartInventoryColumn.setCellValueFactory(new PropertyValueFactory<>("stock"));
         AssociatedPartPriceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
 
+    }
+
+    /**
+     * used same search function as AddProductForm to search by ID and name
+     * @param event
+     * */
+    public void searchPart(ActionEvent event) {
+        String search = SearchPart.getText();
+        ObservableList<Part> partFound = Inventory.lookupPart(search);
+        try {
+            while(partFound.size() == 0){
+                int productId = Integer.parseInt(search);
+                partFound.add(Inventory.lookupPart(productId));
+            }
+            PartTableView.setItems(partFound);
+        }
+        catch (NumberFormatException e){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Nothing Found");
+            alert.setContentText("No Part was found in the list");
+            alert.showAndWait();
+        }
     }
 }

@@ -70,6 +70,6 @@
         <Button fx:id="RemovePartButton" layoutX="971.0" layoutY="563.0" mnemonicParsing="false" onAction="#removePart" prefHeight="25.0" prefWidth="149.0" text="Remove Associated Part" />
         <Button fx:id="SaveProductButton" layoutX="971.0" layoutY="607.0" mnemonicParsing="false" onAction="#saveProduct" prefHeight="25.0" prefWidth="69.0" text="Save" />
         <Button fx:id="CancelProductButton" layoutX="1054.0" layoutY="607.0" mnemonicParsing="false" onAction="#cancelProduct" prefHeight="25.0" prefWidth="69.0" text="Cancel" />
-        <TextField fx:id="SearchPart" alignment="CENTER" layoutX="930.0" layoutY="28.0" prefHeight="25.0" prefWidth="190.0" promptText="Search by Part ID or Name" />
+        <TextField fx:id="SearchPart" onAction="#searchPart" alignment="CENTER" layoutX="930.0" layoutY="28.0" prefHeight="25.0" prefWidth="190.0" promptText="Search by Part ID or Name" />
     </children>
 </AnchorPane>
