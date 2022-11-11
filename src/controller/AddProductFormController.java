@@ -59,8 +59,27 @@ public class AddProductFormController implements Initializable {
     @FXML
     private Button CancelProductButton;
 
+    /**
+     * adds part to observable list and displays error if nothing is selected
+     * @param actionEvent
+     * */
+    @FXML
     public void addPartToProduct(ActionEvent actionEvent) {
+        Part part = PartTableView.getSelectionModel().getSelectedItem();
+
+        if(part != null) {
+            associatedPart.add(part);
+            AssociatedPartTableView.setItems(associatedPart);
+        }
+
+        else if(!associatedPart.contains(null)) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Error");
+            alert.setContentText("part not selected from list");
+            alert.showAndWait();
+        }
     }
+
 
     public void removePart(ActionEvent actionEvent) {
     }
