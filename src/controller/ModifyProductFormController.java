@@ -12,7 +12,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import model.Inventory;
 import model.Part;
 import model.Product;
 
@@ -37,25 +39,25 @@ public class ModifyProductFormController implements Initializable {
     @FXML
     private TextField ProductMin;
     @FXML
-    private TableView PartTableView;
+    private TableView<Part> PartTableView;
     @FXML
-    private TableColumn PartIdColumn;
+    private TableColumn<Part,Integer> PartIdColumn;
     @FXML
-    private TableColumn PartNameColumn;
+    private TableColumn<Part,String> PartNameColumn;
     @FXML
-    private TableColumn PartInventoryColumn;
+    private TableColumn<Part,Inventory> PartInventoryColumn;
     @FXML
-    private TableColumn PartPriceColumn;
+    private TableColumn<Part,Double> PartPriceColumn;
     @FXML
-    private TableView AssociatedPartTableView;
+    private TableView<Part> AssociatedPartTableView;
     @FXML
-    private TableColumn AssociatedPartIdColumn;
+    private TableColumn<Part,Integer> AssociatedPartIdColumn;
     @FXML
-    private TableColumn AssociatedPartPriceColumn;
+    private TableColumn<Part,Double> AssociatedPartPriceColumn;
     @FXML
-    private TableColumn AssociatedPartNameColumn;
+    private TableColumn<Part,String> AssociatedPartNameColumn;
     @FXML
-    private TableColumn AssociatedPartInventoryColumn;
+    private TableColumn<Part,Integer> AssociatedPartInventoryColumn;
     @FXML
     private Button RemovePartButton;
     @FXML
@@ -94,14 +96,24 @@ public class ModifyProductFormController implements Initializable {
         ProductMax.setText(String.valueOf(selectedItem.getMax()));
         ProductMin.setText(String.valueOf(selectedItem.getMin()));
 
-        for (Part part: selectedItem.getAllAssociatedParts()){
-            associatedPartList.add(part);
-        }
+        associatedPartList.addAll(selectedItem.getAllAssociatedParts());
 
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        PartTableView.setItems(Inventory.getAllParts());
+        PartIdColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+        PartNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        PartInventoryColumn.setCellValueFactory(new PropertyValueFactory<>("stock"));
+        PartPriceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
+
+        AssociatedPartTableView.setItems(associatedPartList);
+        AssociatedPartIdColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+        AssociatedPartNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        AssociatedPartInventoryColumn.setCellValueFactory(new PropertyValueFactory<>("stock"));
+        AssociatedPartPriceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
 
     }
 }
