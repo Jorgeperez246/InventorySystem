@@ -11,9 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import model.Inventory;
-import model.Part;
-import model.Product;
+import model.*;
 
 import java.io.IOException;
 import java.net.URL;
@@ -104,9 +102,52 @@ public class AddProductFormController implements Initializable {
 
     }
 
-    public void saveProduct(ActionEvent actionEvent) {
-        
+    public void saveProduct(ActionEvent actionEvent) throws IOException {
+        try {
+
+            // random function used to prevent same number for PartId
+            int ProductRandomId = (int) (Math.random() * 100);
+
+            String Name = ProductName.getText();
+            int Stock = Integer.parseInt(ProductInventory.getText());
+            double Price = Double.parseDouble(ProductPrice.getText());
+            int Max = Integer.parseInt(ProductMax.getText());
+            int Min = Integer.parseInt(ProductMin.getText());
+
+
+            //checks whether min is less than max, if not then displays error
+            if (Max < Min) {
+                Alert alert = new Alert(Alert.AlertType.ERROR, "Max is not greater than Min");
+                alert.showAndWait();
+                return;
+            }
+            //checks whether inventory is within min and max range, if not then displays error
+            else if (Stock < Min || Max < Stock) {
+                Alert alert = new Alert(Alert.AlertType.ERROR, "Inventory be in Min to Max Range");
+                alert.showAndWait();
+                return;
+            }
+
+            Product product = new Product(ProductRandomId,Name,Price,Stock,Min,Max);
+            for (Part part: associatedPart) {
+                if (part != associatedPart)
+                    product.addAssociatedPart(part);
+            }
+            Inventory.getAllProducts().add(product);
+            Stage stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
+            Object scene = FXMLLoader.load(getClass().getResource("/view/MainForm.fxml"));
+            stage.setScene(new Scene((Parent) scene));
+            stage.show();
+            // catch used to diplay incorrect values entered into the form
+        } catch (NumberFormatException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Input Error");
+            alert.setContentText("Incorrect values");
+            alert.showAndWait();
+        }
     }
+
+
 
     /**
      * sends you back to main Form

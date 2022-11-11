@@ -110,7 +110,7 @@ public class Product {
      * adds part to associated parts observable list
      * @param part
      * */
-    public void addAssociatedPart(ObservableList<Part> part){
+    public void addAssociatedPart(Part part){
         this.associatedParts.addAll(part);
     }
 
