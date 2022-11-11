@@ -8,10 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import model.Inventory;
@@ -65,7 +62,25 @@ public class ModifyProductFormController implements Initializable {
     @FXML
     private Button CancelProductButton;
 
+    /**
+     * same function from AddProduct controller recycled
+     * allows user to add part to product
+     * @param actionEvent
+     * */
     public void addPartToProduct(ActionEvent actionEvent) {
+        Part part = PartTableView.getSelectionModel().getSelectedItem();
+
+        if(part != null) {
+            associatedPartList.add(part);
+            AssociatedPartTableView.setItems(associatedPartList);
+        }
+
+        else if(!associatedPartList.contains(null)) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Error");
+            alert.setContentText("part not selected from list");
+            alert.showAndWait();
+        }
     }
 
     public void removePart(ActionEvent actionEvent) {

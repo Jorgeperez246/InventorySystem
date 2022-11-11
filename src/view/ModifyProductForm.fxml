@@ -40,7 +40,7 @@
                 <Font name="System Italic" size="12.0" />
             </font>
         </TextField>
-        <TextField fx:id="ProductName" editable="false" layoutX="163.0" layoutY="176.0" />
+        <TextField fx:id="ProductName" layoutX="163.0" layoutY="176.0" />
         <TextField fx:id="ProductInventory" layoutX="163.0" layoutY="222.0" />
         <TextField fx:id="ProductPrice" layoutX="163.0" layoutY="267.0" />
         <TextField fx:id="ProductMax" layoutX="163.0" layoutY="308.0" />
@@ -61,7 +61,7 @@
                 <TableColumn fx:id="AssociatedPartPriceColumn" prefWidth="151.0" text="Price Per Unit" />
             </columns>
         </TableView>
-        <Label layoutX="43.0" layoutY="40.0" prefHeight="31.0" prefWidth="106.0" text="Add Product">
+        <Label layoutX="43.0" layoutY="40.0" prefHeight="31.0" prefWidth="126.0" text="Modify Product">
             <font>
                 <Font name="System Bold" size="16.0" />
             </font>
