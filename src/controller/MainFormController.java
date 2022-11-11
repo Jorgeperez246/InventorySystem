@@ -2,6 +2,8 @@ package controller;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -68,7 +70,10 @@ public class MainFormController implements Initializable {
         alert.showAndWait();
     }
 
-    //Opens AddPartForm fxml file
+    /**
+     * opens addPart form
+     * @param event
+     * */
     public void addPart(ActionEvent event) throws IOException {
         Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
         Parent scene = FXMLLoader.load(getClass().getResource("/view/AddPartForm.fxml"));
@@ -77,6 +82,36 @@ public class MainFormController implements Initializable {
         stage.show();
     }
 
+    /**
+     * searches list from PartTableView when enter key is hit
+     * when entering a number that isn't a real ID it seems 'catch' doesn't pick it up
+     * will try to revisit later on and fix this bug.
+     * @param event
+     * */
+    @FXML
+    public void partSearch(ActionEvent event){
+        String search = PartSearch.getText();
+        ObservableList<Part> partFound = Inventory.lookupPart(search);
+        try {
+            while(partFound.size() == 0){
+                int partId = Integer.parseInt(search);
+                partFound.add(Inventory.lookupPart(partId));
+            }
+            PartTableView.setItems(partFound);
+        }
+        catch (NumberFormatException e){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Nothing Found");
+            alert.setContentText("No Part was found in the list");
+            alert.showAndWait();
+        }
+
+    }
+
+    /**
+     * opens modifyPart form if part on table is selected
+     * @param actionEvent
+     * */
     @FXML
     public void modifyPart(ActionEvent actionEvent) throws IOException {
         try {
@@ -106,7 +141,10 @@ public class MainFormController implements Initializable {
         Part part = PartTableView.getSelectionModel().getSelectedItem();
         Inventory.deletePart(part);
     }
-
+    /**
+     * opens modifyProduct form if Product on table is selected
+     * @param actionEvent
+     * */
     public void modifyProduct(ActionEvent actionEvent) throws IOException {
         try {
             FXMLLoader loader = new FXMLLoader();
@@ -126,13 +164,23 @@ public class MainFormController implements Initializable {
             logger.log(Level.SEVERE, "Failed to create new Window.", e);
         }
     }
-
+    /**
+     * deletes product from ProductTable view
+     * @param actionEvent
+     * */
     public void deleteProduct(ActionEvent actionEvent) {
     }
-    // Exits the application
+    /**
+     * exits application
+     * @param actionEvent
+     * */
     public void exitApp(ActionEvent actionEvent) {
         System.exit(0);
     }
+    /**
+     * opens addProduct form
+     * @param event
+     * */
     public void addProduct(ActionEvent event) throws IOException {
         Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
         Parent scene = FXMLLoader.load(getClass().getResource("/view/AddProductForm.fxml"));
@@ -162,8 +210,27 @@ public class MainFormController implements Initializable {
 
 
     }
-    
-    
 
-
+    /**
+     * searches PartTable view by ID and Name
+     * similar code to part search but unfortunately has same bug with product ID
+     * @param event
+     * */
+    public void productSearch(ActionEvent event) {
+        String search = ProductSearch.getText();
+        ObservableList<Product> productFound = Inventory.lookupProduct(search);
+        try {
+            while(productFound.size() == 0){
+                int productId = Integer.parseInt(search);
+                productFound.add(Inventory.lookupProduct(productId));
+            }
+            ProductTableView.setItems(productFound);
+        }
+        catch (NumberFormatException e){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Nothing Found");
+            alert.setContentText("No Part was found in the list");
+            alert.showAndWait();
+        }
+    }
 }

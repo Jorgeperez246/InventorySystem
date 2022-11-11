@@ -55,13 +55,13 @@
                 <Font name="System Italic" size="12.0" />
             </font>
         </TextField>
-        <TextField fx:id="PartName" editable="false" layoutX="153.0" layoutY="166.0" />
+        <TextField fx:id="PartName" layoutX="153.0" layoutY="166.0" />
         <TextField fx:id="PartInventory" layoutX="153.0" layoutY="212.0" />
         <TextField fx:id="PartPrice" layoutX="153.0" layoutY="257.0" />
         <TextField fx:id="PartMax" layoutX="153.0" layoutY="298.0" />
         <TextField fx:id="MachineOrCompany" layoutX="153.0" layoutY="345.0" />
         <TextField fx:id="PartMin" layoutX="363.0" layoutY="298.0" prefHeight="23.0" prefWidth="149.0" />
-        <RadioButton fx:id="PartInHouseRadio" layoutX="169.0" layoutY="38.0" mnemonicParsing="false" selected="false" onAction="#setMachine" prefHeight="25.0" prefWidth="88.0" text="In-House">
+        <RadioButton fx:id="PartInHouseRadio" layoutX="169.0" layoutY="38.0" mnemonicParsing="false" onAction="#setMachine" prefHeight="25.0" prefWidth="88.0" selected="false" text="In-House">
          <toggleGroup>
             <ToggleGroup fx:id="AddPartToggle" />
          </toggleGroup></RadioButton>

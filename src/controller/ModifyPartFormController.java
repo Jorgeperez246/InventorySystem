@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import model.InHouse;
+import model.Inventory;
 import model.Outsourced;
 import model.Part;
 
@@ -60,8 +61,67 @@ public class ModifyPartFormController {
     public void setCompany(ActionEvent event) {
         MachineId.setText("Company Name");
     }
-    public void savePart(ActionEvent actionEvent) {
+
+    /**
+     * was having trouble with this function because I reused code from savePart function from
+     * AddPartForm and realized I wasn't using the updatePart Function in Inventory model class
+     * @param actionEvent
+     * */
+    @FXML
+    public void savePart(ActionEvent actionEvent) throws IOException {
+        try {
+            int PartId = Integer.parseInt(ModifyPartID.getText());
+            String Name = PartName.getText();
+            int Stock = Integer.parseInt(PartInventory.getText());
+            double Price = Double.parseDouble(PartPrice.getText());
+            int Max = Integer.parseInt(PartMax.getText());
+            int Min = Integer.parseInt(PartMin.getText());
+
+            int machineID;
+            String companyName;
+
+            //checks whether min is less than max, if not then displays error
+            if (Max < Min) {
+                Alert alert = new Alert(Alert.AlertType.ERROR, "Max is not greater than Min");
+                alert.showAndWait();
+                return;
+            }
+            //checks whether inventory is within min and max range, if not then displays error
+            else if (Stock < Min || Max < Stock) {
+                Alert alert = new Alert(Alert.AlertType.ERROR, "Inventory be in Min to Max Range");
+                alert.showAndWait();
+                return;
+            }
+
+
+            //checks if part outsourced or inhouse is selected
+            if (PartOutsourcedRadio.isSelected()) {
+                companyName = MachineOrCompany.getText();
+                Outsourced updatePart = new Outsourced(PartId, Name, Price, Stock, Min, Max, companyName);
+                Inventory.updatePart(index,updatePart);
+            }
+            if (PartInHouseRadio.isSelected()) {
+                machineID = Integer.parseInt(MachineOrCompany.getText());
+                InHouse updatePart = new InHouse(PartId, Name, Price, Stock, Min, Max, machineID);
+                Inventory.updatePart(index,updatePart);
+            }
+            Stage stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
+            Object scene = FXMLLoader.load(getClass().getResource("/view/MainForm.fxml"));
+            stage.setScene(new Scene((Parent) scene));
+            stage.show();
+            // catch used to diplay incorrect values entered into the form
+        }
+        catch (NumberFormatException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Input Error");
+            alert.setContentText("Incorrect values");
+            alert.showAndWait();
     }
+}
+
+
+
+
     /**
      * returns to mainForm
      * @param actionEvent
