@@ -13,12 +13,15 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import model.Inventory;
 import model.Part;
+import model.Product;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class AddProductFormController implements Initializable {
+    @FXML
+    private TextField SearchPart;
     private ObservableList<Part> associatedPart = FXCollections.observableArrayList();
     @FXML
     private TextField ProductId;
@@ -102,6 +105,7 @@ public class AddProductFormController implements Initializable {
     }
 
     public void saveProduct(ActionEvent actionEvent) {
+        
     }
 
     /**
@@ -133,5 +137,25 @@ public class AddProductFormController implements Initializable {
 
     }
 
-
+    /**
+     * searches parts list within AddProductForm
+     * @param event
+     * */
+    public void searchPart(ActionEvent event) {
+        String search = SearchPart.getText();
+        ObservableList<Part> partFound = Inventory.lookupPart(search);
+        try {
+            while(partFound.size() == 0){
+                int productId = Integer.parseInt(search);
+                partFound.add(Inventory.lookupPart(productId));
+            }
+            PartTableView.setItems(partFound);
+        }
+        catch (NumberFormatException e){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Nothing Found");
+            alert.setContentText("No Part was found in the list");
+            alert.showAndWait();
+        }
+    }
 }
