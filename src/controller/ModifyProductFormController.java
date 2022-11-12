@@ -121,11 +121,11 @@ public class ModifyProductFormController implements Initializable {
             int Min = Integer.parseInt(ProductMin.getText());
 
             if (Stock > Max || Stock < Min) {
-                Alert alert = new Alert(Alert.AlertType.ERROR, "Inventory requirements: Inventory must be within min and max.");
+                Alert alert = new Alert(Alert.AlertType.ERROR, "Max is not greater than Min.");
                 alert.showAndWait();
                 return;
             } else if (Min >= Max) {
-                Alert alert = new Alert(Alert.AlertType.ERROR, "Inventory requirements: maximum must be greater than minimum");
+                Alert alert = new Alert(Alert.AlertType.ERROR, "Inventory be in Min to Max Range");
                 alert.showAndWait();
                 return;
             }

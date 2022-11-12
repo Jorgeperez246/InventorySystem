@@ -169,6 +169,15 @@ public class MainFormController implements Initializable {
      * @param actionEvent
      * */
     public void deleteProduct(ActionEvent actionEvent) {
+        Product product = ProductTableView.getSelectionModel().getSelectedItem();
+        if(product.getAllAssociatedParts().size()>0){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setContentText("Product contains associated parts, please remove before deletion");
+            alert.showAndWait();
+            return;
+        }
+        Inventory.deleteProduct(product);
     }
     /**
      * exits application
