@@ -61,7 +61,7 @@
         <TextField fx:id="PartMax" layoutX="153.0" layoutY="298.0" />
         <TextField fx:id="MachineOrCompany" layoutX="153.0" layoutY="345.0" />
         <TextField fx:id="PartMin" layoutX="363.0" layoutY="298.0" prefHeight="23.0" prefWidth="149.0" />
-        <RadioButton fx:id="PartInHouseRadio" layoutX="169.0" layoutY="38.0" mnemonicParsing="false" onAction="#setMachine" prefHeight="25.0" prefWidth="88.0" selected="false" text="In-House">
+        <RadioButton fx:id="PartInHouseRadio" layoutX="169.0" layoutY="38.0" mnemonicParsing="false" onAction="#setMachine" prefHeight="25.0" prefWidth="88.0"  text="In-House">
          <toggleGroup>
             <ToggleGroup fx:id="AddPartToggle" />
          </toggleGroup></RadioButton>

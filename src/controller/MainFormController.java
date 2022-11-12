@@ -84,8 +84,10 @@ public class MainFormController implements Initializable {
 
     /**
      * searches list from PartTableView when enter key is hit
-     * when entering a number that isn't a real ID it seems 'catch' doesn't pick it up
-     * will try to revisit later on and fix this bug.
+     * FUTURE ENHANCEMENT: For some ID's error is not displayed
+     * instead shows blank screen other times it shows error otherwise works
+     * fine.
+     * UPDATE: fixed bug by modifying lookup function in Inventory model.
      * @param event
      * */
     @FXML
@@ -223,6 +225,7 @@ public class MainFormController implements Initializable {
     /**
      * searches PartTable view by ID and Name
      * similar code to part search but unfortunately has same bug with product ID
+     * UPDATE: fixed bug by modifying lookup function.
      * @param event
      * */
     public void productSearch(ActionEvent event) {

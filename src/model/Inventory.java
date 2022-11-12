@@ -2,6 +2,7 @@ package model;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Alert;
 
 public class Inventory {
     private static ObservableList<Part> allParts = FXCollections.observableArrayList();
@@ -34,6 +35,10 @@ public class Inventory {
                 return part;
             }
         }
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText("No Part with this ID found");
+        alert.show();
         return null;
     }
 
@@ -47,6 +52,10 @@ public class Inventory {
             while (product.getId() == productId)
                 return product;
         }
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText("No Product with this ID found");
+        alert.show();
         return null;
 
     }

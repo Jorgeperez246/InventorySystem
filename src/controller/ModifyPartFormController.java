@@ -44,26 +44,10 @@ public class ModifyPartFormController {
     @FXML
     private Button CancelPartButton;
 
-    /**
-     * sets machineId label to machine id
-     * @param event
-     * */
-    @FXML
-    public void setMachine(ActionEvent event) {
-       MachineId.setText("Machine ID");
-    }
+
 
     /**
-     * sets machineId label to comapany name
-     * @param event
-     * */
-    @FXML
-    public void setCompany(ActionEvent event) {
-        MachineId.setText("Company Name");
-    }
-
-    /**
-     * was having trouble with this function because I reused code from savePart function from
+     * FUTURE ENHANCEMENT: was having trouble with this function because I reused code from savePart function from
      * AddPartForm and realized I wasn't using the updatePart Function in Inventory model class
      * @param actionEvent
      * */
@@ -134,7 +118,11 @@ public class ModifyPartFormController {
         stage.show();
     }
     /**
-     * takes information on part from mainForm
+     * takes information on part from mainForm and sends it to modifypartForm
+     * FUTURE ENHANCEMENT: label for machine or company name only displays correctly if
+     * clicking onto the opposite radio button and clicking back on to it. will try to check
+     * the fxml and see if anything is wrong with that first.
+     *
      * @param selectedIndex
      * @param selectedItem
      * */
@@ -145,6 +133,7 @@ public class ModifyPartFormController {
             MachineOrCompany.setText(String.valueOf(((InHouse) selectedItem).getMachineId()));
         }
         else{
+
             PartOutsourcedRadio.setSelected(true);
             MachineOrCompany.setText(((Outsourced) selectedItem).getCompanyName());
         }
@@ -155,6 +144,22 @@ public class ModifyPartFormController {
         PartMax.setText(String.valueOf(selectedItem.getMax()));
         PartMin.setText(String.valueOf(selectedItem.getMin()));
     }
+    /**
+     * sets machineId label to machine id
+     * @param event
+     * */
+    @FXML
+    public void setMachine(ActionEvent event) {
+        MachineId.setText("Machine ID");
+    }
 
+    /**
+     * sets machineId label to comapany name
+     * @param event
+     * */
+    @FXML
+    public void setCompany(ActionEvent event) {
+        MachineId.setText("Company Name");
+    }
 
 }

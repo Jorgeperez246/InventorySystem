@@ -11,14 +11,18 @@ import java.io.IOException;
 public class main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-
-
+        /**
+         * loads moin form screen
+         * */
         FXMLLoader fxmlLoader = new FXMLLoader(main.class.getResource("/view/MainForm.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1225, 650);
         stage.setTitle("Inventory System");
         stage.setScene(scene);
         stage.show();
     }
+    /**
+     * contains mock data for Inventory
+     * */
     public static void addTestData(){
         Part brakes = new InHouse(1, "Windshield", 50.00, 7, 2, 44, 9);
         Inventory.addPart(brakes);

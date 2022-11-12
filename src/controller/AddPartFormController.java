@@ -15,9 +15,12 @@ import javax.crypto.Mac;
 import java.io.IOException;
 
 public class AddPartFormController {
-    public Label MachineId;
-    public RadioButton PartInHouseRadio;
-    public RadioButton PartOutsourcedRadio;
+    @FXML
+    private Label MachineId;
+    @FXML
+    private RadioButton PartInHouseRadio;
+    @FXML
+    private RadioButton PartOutsourcedRadio;
     @FXML
     private TextField PartName;
     @FXML
@@ -37,6 +40,16 @@ public class AddPartFormController {
     @FXML
     private Button CancelPartButton;
 
+
+    /**
+     * Saves Part created in AddPartForm and checks for any errors
+     * FUTURE ENHANCEMENT: radio buttons are not changed label text
+     * between machine id and company name. will look for a solution
+     * UPDATE: label and radio buttons were set to public and did not contain
+     * 'fxml' tag
+     *
+     * @param actionEvent
+     * */
     @FXML
     public void savePart(ActionEvent actionEvent) throws IOException {
         try {
@@ -96,7 +109,7 @@ public class AddPartFormController {
      * @param event
      * */
     @FXML
-    public void setMachine(ActionEvent event) {
+    void setMachine(ActionEvent event) {
         MachineId.setText("Machine ID");
     }
 
@@ -105,9 +118,14 @@ public class AddPartFormController {
      * @param event
      * */
     @FXML
-    public void setCompany(ActionEvent event) {
+    void setCompany(ActionEvent event) {
         MachineId.setText("Company Name");
     }
+
+    /**
+     * takes you back to the MainForm and without saving any progress
+     * @param event
+     * */
     public void cancelPart(ActionEvent event) throws IOException {
         Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
         Parent scene = FXMLLoader.load(getClass().getResource("/view/MainForm.fxml"));

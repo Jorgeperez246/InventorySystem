@@ -157,7 +157,10 @@ public class ModifyProductFormController implements Initializable {
         }
     }
 
-
+    /**
+     * cancels progress and sends you back to the Main form
+     * @param actionEvent
+     * */
     public void cancelProduct(ActionEvent actionEvent) throws IOException {
         Stage stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
         Object scene = FXMLLoader.load(getClass().getResource("/view/MainForm.fxml"));
