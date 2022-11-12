@@ -100,7 +100,7 @@ public class Inventory {
      * @param selectedProduct
      * */
     public static void updateProduct(int index, Product selectedProduct){
-
+    allProducts.set(index, selectedProduct);
     }
 
     /**

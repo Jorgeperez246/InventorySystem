@@ -21,9 +21,9 @@ import java.util.ResourceBundle;
 
 public class ModifyProductFormController implements Initializable {
 
+    private ObservableList<Part> associatedPartList = FXCollections.observableArrayList();
     @FXML
     private TextField SearchPart;
-    private ObservableList<Part> associatedPartList = FXCollections.observableArrayList();
     private int index = 0;
     @FXML
     private TextField ProductId;
@@ -105,9 +105,58 @@ public class ModifyProductFormController implements Initializable {
         }
     }
 
-    public void saveProduct(ActionEvent actionEvent) {
+    /**
+     * ran into 3 hour issue here because my updateProduct function in inventory was blank
+     * saves product modification
+     * @param actionEvent
+     * */
+    @FXML
+    public void saveProduct(ActionEvent actionEvent) throws IOException {
+        try {
+            int ProductID = Integer.parseInt(ProductId.getText());
+            String Name = ProductName.getText();
+            int Stock = Integer.parseInt(ProductInventory.getText());
+            double Price = Double.parseDouble(ProductPrice.getText());
+            int Max = Integer.parseInt(ProductMax.getText());
+            int Min = Integer.parseInt(ProductMin.getText());
 
+            if (Stock > Max || Stock < Min) {
+                Alert alert = new Alert(Alert.AlertType.ERROR, "Inventory requirements: Inventory must be within min and max.");
+                alert.showAndWait();
+                return;
+            } else if (Min >= Max) {
+                Alert alert = new Alert(Alert.AlertType.ERROR, "Inventory requirements: maximum must be greater than minimum");
+                alert.showAndWait();
+                return;
+            }
+
+            Product product = new Product(ProductID,Name,Price,Stock,Min,Max);
+            if (!product.equals(associatedPartList)) {
+                Inventory.updateProduct(index, product);
+            }
+
+            for (Part part: associatedPartList) {
+                if (part != associatedPartList)
+                    product.addAssociatedPart(part);
+            }
+
+
+
+
+            Stage stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
+            Object scene = FXMLLoader.load(getClass().getResource("/view/MainForm.fxml"));
+            stage.setScene(new Scene((Parent) scene));
+            stage.show();
+
+        } catch (NumberFormatException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Input Error");
+            alert.setContentText("Incorrect value");
+            alert.showAndWait();
+
+        }
     }
+
 
     public void cancelProduct(ActionEvent actionEvent) throws IOException {
         Stage stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
