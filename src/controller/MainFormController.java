@@ -1,5 +1,6 @@
 package controller;
 
+import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -84,10 +85,12 @@ public class MainFormController implements Initializable {
 
     /**
      * searches list from PartTableView when enter key is hit
-     * FUTURE ENHANCEMENT: For some ID's error is not displayed
+     * ERRORS: For some IDs error is not displayed
      * instead shows blank screen other times it shows error otherwise works
      * fine.
      * UPDATE: fixed bug by modifying lookup function in Inventory model.
+     * FUTURE ENHANCEMENTS: would like to add a feature here that searches by
+     * price in case you want to see all the parts associated with a price.
      * @param event
      * */
     @FXML
@@ -137,12 +140,20 @@ public class MainFormController implements Initializable {
     /**
      * deletes a part from inventory
      * @param actionEvent
+     * UPDATE:added a prompt here before a user deletes a part.
      * */
     @FXML
     public void deletePart(ActionEvent actionEvent) {
         Part part = PartTableView.getSelectionModel().getSelectedItem();
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation");
+        alert.setHeaderText("Confirmation Prompt");
+        alert.setContentText("Would you like to delete this part?");
+        Optional<ButtonType> answer = alert.showAndWait();
+
+        if(answer.isPresent() && answer.get() == ButtonType.OK){
         Inventory.deletePart(part);
-    }
+    }}
     /**
      * opens modifyProduct form if Product on table is selected
      * @param actionEvent
@@ -169,17 +180,25 @@ public class MainFormController implements Initializable {
     /**
      * deletes product from ProductTable view
      * @param actionEvent
+     * UPDATE: added prompt to ask if user would really like to delete product.
      * */
     public void deleteProduct(ActionEvent actionEvent) {
         Product product = ProductTableView.getSelectionModel().getSelectedItem();
-        if(product.getAllAssociatedParts().size()>0){
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setContentText("Product contains associated parts, please remove before deletion");
-            alert.showAndWait();
-            return;
+        Alert prompt = new Alert(Alert.AlertType.CONFIRMATION);
+        prompt.setTitle("Confirmation");
+        prompt.setHeaderText("Confirmation Prompt");
+        prompt.setContentText("Would you like to delete this product?");
+        Optional<ButtonType> answer = prompt.showAndWait();
+        if(answer.isPresent() && answer.get() == ButtonType.OK) {
+            if (product.getAllAssociatedParts().size() > 0) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setContentText("Product contains associated parts, please remove before deletion");
+                alert.showAndWait();
+                return;
+            }
+            Inventory.deleteProduct(product);
         }
-        Inventory.deleteProduct(product);
     }
     /**
      * exits application

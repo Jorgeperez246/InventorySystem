@@ -102,6 +102,12 @@ public class AddProductFormController implements Initializable {
 
     }
 
+    /**
+     * FUTURE ENHANCEMENT: Would like to add a section that asks user if he would like to
+     * link the created part to an existed product to make it an associated Part
+     * @param actionEvent
+     * */
+
     public void saveProduct(ActionEvent actionEvent) throws IOException {
         try {
 

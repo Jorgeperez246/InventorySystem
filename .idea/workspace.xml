@@ -5,15 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ad3a500c-1bd8-4774-a2b9-4ad7585788cf" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/AddPartFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/AddPartFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/AddProductFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/AddProductFormController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/MainFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/MainFormController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/ModifyPartFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ModifyPartFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/ModifyProductFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ModifyProductFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Inventory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/ModifyPartForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ModifyPartForm.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +52,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/jorge/Documents/InventorySystem",
+    "last_opened_file_path": "C:/Users/jorge/Downloads",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0"

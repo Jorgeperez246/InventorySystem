@@ -43,7 +43,7 @@ public class AddPartFormController {
 
     /**
      * Saves Part created in AddPartForm and checks for any errors
-     * FUTURE ENHANCEMENT: radio buttons are not changed label text
+     * ERRORS: radio buttons are not changing label text
      * between machine id and company name. will look for a solution
      * UPDATE: label and radio buttons were set to public and did not contain
      * 'fxml' tag

@@ -106,7 +106,7 @@ public class ModifyProductFormController implements Initializable {
     }
 
     /**
-     * ran into 3 hour issue here because my updateProduct function in inventory was blank
+     * ERROR:ran into 3 hour issue here because my updateProduct function in inventory was blank
      * saves product modification
      * @param actionEvent
      * */
