@@ -61,11 +61,11 @@
         <TextField fx:id="PartMax" layoutX="153.0" layoutY="298.0" />
         <TextField fx:id="MachineOrCompany" layoutX="153.0" layoutY="345.0" />
         <TextField fx:id="PartMin" layoutX="363.0" layoutY="298.0" prefHeight="23.0" prefWidth="149.0" />
-        <RadioButton fx:id="PartInHouseRadio" layoutX="169.0" layoutY="38.0" mnemonicParsing="false" onAction="#setMachine" prefHeight="25.0" prefWidth="88.0"  text="In-House">
+        <RadioButton fx:id="PartInHouseRadio" layoutX="169.0" layoutY="38.0" mnemonicParsing="false"  prefHeight="25.0" prefWidth="88.0"  text="In-House">
          <toggleGroup>
             <ToggleGroup fx:id="AddPartToggle" />
          </toggleGroup></RadioButton>
-        <RadioButton fx:id="PartOutsourcedRadio" layoutX="322.0" layoutY="38.0" mnemonicParsing="false" onAction="#setCompany" prefHeight="25.0" prefWidth="88.0" text="Outsourced" toggleGroup="$AddPartToggle" />
+        <RadioButton fx:id="PartOutsourcedRadio" layoutX="322.0" layoutY="38.0" mnemonicParsing="false"  prefHeight="25.0" prefWidth="88.0" text="Outsourced" toggleGroup="$AddPartToggle" />
         <Button fx:id="SavePartButton" layoutX="366.0" layoutY="441.0" mnemonicParsing="false" onAction="#savePart" prefHeight="27.0" prefWidth="52.0" text="Save" />
         <Button fx:id="CancelPartButton" layoutX="442.0" layoutY="441.0" mnemonicParsing="false" onAction="#cancelPart" prefHeight="27.0" prefWidth="52.0" text="Cancel" />
     </children>
