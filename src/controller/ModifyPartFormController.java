@@ -150,23 +150,23 @@ public class ModifyPartFormController {
         PartMax.setText(String.valueOf(selectedItem.getMax()));
         PartMin.setText(String.valueOf(selectedItem.getMin()));
     }
-   /* *//**
+   /**
      * sets machineId label to machine id
      * @param event
-     * *//*
+     * */
     @FXML
     public void setMachine(ActionEvent event) {
 
         MachineId.setText("Machine ID");
     }
 
-    *//**
+    /**
      * sets machineId label to comapany name
      * @param event
-     * *//*
+     * */
     @FXML
     public void setCompany(ActionEvent event) {
         MachineId.setText("Company Name");
     }
-*/
+
 }
