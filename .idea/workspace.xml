@@ -6,8 +6,61 @@
   <component name="ChangeListManager">
     <list default="true" id="ad3a500c-1bd8-4774-a2b9-4ad7585788cf" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/ModifyPartFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ModifyPartFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/ModifyPartForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ModifyPartForm.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/allclasses-index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/allpackages-index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.inventorysystem/controller/AddPartFormController.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.inventorysystem/controller/AddProductFormController.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.inventorysystem/controller/MainFormController.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.inventorysystem/controller/ModifyPartFormController.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.inventorysystem/controller/ModifyProductFormController.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.inventorysystem/controller/package-summary.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.inventorysystem/controller/package-tree.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.inventorysystem/main/main.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.inventorysystem/main/package-summary.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.inventorysystem/main/package-tree.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.inventorysystem/model/InHouse.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.inventorysystem/model/Inventory.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.inventorysystem/model/Outsourced.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.inventorysystem/model/Part.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.inventorysystem/model/Product.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.inventorysystem/model/package-summary.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.inventorysystem/model/package-tree.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.inventorysystem/module-summary.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/element-list" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/help-doc.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-10.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-11.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-12.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-13.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-3.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-4.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-5.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-6.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-7.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-8.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-9.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/jquery-ui.overrides.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/legal/COPYRIGHT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/legal/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/legal/jquery.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/legal/jqueryUI.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/member-search-index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/module-search-index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/overview-tree.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/package-search-index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/resources/glass.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/resources/x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/script-dir/jquery-3.6.0.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/script-dir/jquery-ui.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/script-dir/jquery-ui.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/script.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/search.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/stylesheet.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/tag-search-index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/type-search-index.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,17 +97,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/jorge/Downloads",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/jorge/Downloads&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\jorge\IdeaProjects\InventorySystem\src\model" />
